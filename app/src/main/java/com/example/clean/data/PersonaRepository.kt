@@ -13,6 +13,8 @@ import javax.inject.Singleton
 
 public class PersonaRepository @Inject constructor(
     private val repository: PersonaProvider
+
+    //Aquí podría añadir dos atributos: retrofit y room
 ) {
 
 
