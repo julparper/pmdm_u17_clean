@@ -9,7 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.clean.ui.viewmodel.PersonaViewModel
 import com.example.patronmvvm.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+// Para poder usar viewModel y Hilt
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), OnClickListener {
 
     private lateinit var binding: ActivityMainBinding

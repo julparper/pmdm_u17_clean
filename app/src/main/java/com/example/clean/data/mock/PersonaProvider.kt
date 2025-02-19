@@ -1,10 +1,15 @@
 package com.example.clean.data.mock
 
-import com.example.clean.data.PersonaRepository
 import com.example.clean.data.model.PersonaModel
 import com.example.clean.domain.model.Persona
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PersonaProvider() : PersonaRepository {
+class PersonaProvider  @Inject constructor(){
 
     companion object{
         var pos = 1
@@ -14,9 +19,9 @@ class PersonaProvider() : PersonaRepository {
         )
     }
 
-
-    override suspend fun leer(): PersonaModel {
+    suspend fun leer(): Persona {
         pos = (pos +1) % 2
-        return personas[pos]
+        val persona = personas[pos]
+        return Persona(persona.nombre, persona.apellidos)
     }
 }
